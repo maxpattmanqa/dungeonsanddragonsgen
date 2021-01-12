@@ -1,27 +1,34 @@
 pipeline{
-    agent any
-
-    stages {
-        stage("build") {
-
-            steps {
-                echo 'building the application ....'
-
+        agent any
+        environment {
+            app_version = 'v1'
+            rollback = 'false'
+        }
+        stages{
+            stage('Build Image'){
+                steps{
+                    script{
+                        if (env.rollback == 'false'){
+                            image = docker.build("maxpaqzrio/dungeonsanddragonsgen")
+                        }
+                    }
+                }
             }
-        stage("test"){
-
-            steps{
-                echo 'testing the application ....'
-
+            stage('Tag & Push Image'){
+                steps{
+                    script{
+                        if (env.rollback == 'false'){
+                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
+                                image.push("${env.app_version}")
+                            }
+                        }
+                    }
+                }
+            }
+            stage('Deploy App'){
+                steps{
+                    sh "docker-compose pull && docker-compose up -d"
+                }
             }
         }
-        stage("deploy"){
-            
-            steps{
-                  echo 'deploying the application ....'
-
-            }
-        }
-        }
-    }
 }

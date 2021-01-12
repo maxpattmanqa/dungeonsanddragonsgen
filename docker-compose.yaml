@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+    app_core:
+      build: ./app_core
+      ports:
+        - target: 5000
+          published: 5000
+          protocol: tcp
+
+    role_generator:
+      build: ./role_generator
+      ports:
+        - target: 5001
+          published: 5001
+          protocol: tcp
+
+    weapons_generator:
+      build: ./weapon_generator
+      ports:
+        - target: 5002
+          published: 5002
+          protocol: tcp
+          
+    race_generator:
+      build: ./race_generator
+      ports:
+        - target: 5003
+          published: 5003
+          protocol: tcp
+          
+
+
+
+
+
+ 
