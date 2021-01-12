@@ -12,7 +12,7 @@ def post_text():
 
 @app.route('/get/json', methods=['GET'])
 def get_json():
-    return jsonify({"data": "Hello from Role"})
+    return jsonify({"data": "Hello from Role Generator"})
 
 @app.route('/post/json', methods=['POST'])
 def post_json():
