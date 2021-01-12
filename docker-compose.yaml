@@ -1,10 +1,21 @@
 version: "3.7"
 services:
+    nginx:
+      image: nginx:latest
+      ports:
+      - target: 80
+        published: 80
+        protocol: tcp
+      volumes:
+      - type: bind
+        source: ./nginx/nginx.conf
+        target: /etc/nginx/nginx.conf
+
     app_core:
       build: ./app_core
       ports:
-        - target: 5000
-          published: 5000
+        - target: 5100
+          published: 5100
           protocol: tcp
 
     role_generator:
