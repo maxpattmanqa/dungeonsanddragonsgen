@@ -7,11 +7,10 @@ from application.models import Charachter , Race , Role , Weapon
 from flask import Flask
 import requests
 from requests import get
-from sqlalchemy.orm import sessionmaker
+
+from application.forms import GenerateCharachterForm
 
 #print(Charachter.query.all())
-
-
 ip = get('https://api.ipify.org').text
 server_url = 'http://'+ip
 
@@ -19,9 +18,20 @@ server_url = 'http://'+ip
 def view_homepage():
     return render_template('home.html')
 
-@app.route('/charachtercreator')
+@app.route('/charachtercreator',methods=['GET','POST'])
 def view_charachter_creator():
-    return render_template('character_creator.html')
+    form = GenerateCharachterForm()
+    if(request.method == 'POST') and (form.validate_on_submit()):
+        first_name= form.first_name.data
+        second_name=form.second_name.data
+        race = generate_race()
+        weapon = generate_weapon()
+        role = generate_role()
+        charachter = Charachter(first_name=first_name,second_name=second_name,race_id=int(race),weapon_id=int(weapon),role_id=int(role))
+        db.session.add(charachter)
+        db.session.commit()
+
+    return render_template('character_creator.html',generatecharachterform=form)
 
 @app.route('/tournament')
 def view_tournament():
@@ -34,40 +44,41 @@ def view_charachter_profiles():
 
 
 #database query functions 
-
-def get_charachters_list():
-    print (Charachter.query.all())
-    print('get charachters function was executec')
-    query =  Charachter.query.all()
-    return query
-
-
-
-
-
-
-
-
-
-
-
-
 #Api resonse test for generate weapon 
 
 @app.route('/get/generate_weapon')
 def generate_weapon():
     response = requests.get(server_url+':5002/get/text')
-    return str(response.text) + "Successful Ping "
+    return str(response.text)
 
 @app.route('/get/generate_race')
 def generate_race():
     response = requests.get(server_url+':5003/get/text')
-    return str(response.text) + "Successful Ping "
+    return str(response.text) 
 
 @app.route('/get/generate_role')
 def generate_role():
     response = requests.get(server_url+':5001/get/text')
-    return str(response.text) + "Successful Ping "
+    return str(response.text) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @app.route('/get/sport', methods=['GET'])

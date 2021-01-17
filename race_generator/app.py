@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify, Response
-
+import random
 app = Flask(__name__)
 
 @app.route('/get/text', methods=['GET'])
 def get_text():
-    return Response('Hello from race_generator', mimetype='text/plain')
+    rand_value = random.randint(0,5)
+    return Response(str(rand_value), mimetype='text/plain')
 
 @app.route('/post/text', methods=['POST'])
 def post_text():

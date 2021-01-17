@@ -3,5 +3,17 @@
 
 <P> This is the Charachter Creator landing page <P>
 
+    <h2>Generate a new Charachter</h2>
+    <form method='POST' action=''>
+                   {{ form.hidden_tag() }}
+                   {{ form.first_name.label }} {{ form.first_name }}
+                   <br>
+                   {{ form.second_name.label }} {{ form.second_name }}
+                   <br>             
+                   {{ insert_form.submit }}
+               {{ message }}
+   
+   </form>
+
 
 {% endblock %}
