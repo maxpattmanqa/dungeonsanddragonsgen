@@ -34,5 +34,5 @@ class Charachter(db.Model):
     weapon_id=db.Column(db.Integer,db.ForeignKey('weapon.id'))
     role_id=db.Column(db.Integer,db.ForeignKey('role.id'))
     def __repr__(self):
-        return f"<'{self.id}','{self.first_name}','{self.second_name}','{self.race_id}','{self.weapon_id}','{self.race_id}'>"
+        return f"<'{self.id}','{self.first_name}','{self.second_name}','{self.race_id}','{self.weapon_id}','{self.role_id}'>"
 

@@ -24,7 +24,7 @@ role_warlock=Role(role='Warlock')
 role_healer=Role(role='Healer')
 roles = [role_warrior,role_paladin,role_hunter,role_mage,role_warlock,role_healer]
 for role in roles:
-    db.session.add(race)
+    db.session.add(role)
     db.session.commit()
 
 #adding weapons 
