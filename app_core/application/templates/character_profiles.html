@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+
+<P> This is the Charachter Profiles landing page <P>
+
+
+    <table>
+
+        <tr>
+            <th> First Name </th>
+            <th> Surname </th>
+            <th> Race </th>
+            <th> Weapon </th>
+            <th> Role </th>
+        <tr>
+        {% for charachter in charachters  %}
+           <tr> 
+               
+            <td> {{charachter.first_name}}</td>
+            <td> {{charachter.second_name}}</td>
+            <td> {{charachter.race_id.race}} </td>
+            <td> {{charachter.weapon_id.weapon}}</td>
+            <td> {{charachter.role_id.role}}</td>
+                
+           <tr/>
+          
+        {% endfor %}
+        </table>
+
+
+{% endblock %}
