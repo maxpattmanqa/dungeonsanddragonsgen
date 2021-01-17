@@ -4,7 +4,7 @@ class Race(db.Model):
     __tablename__  = 'race'
     id = db.Column(db.Integer,primary_key=True)
     race = db.Column(db.String(30),nullable=False)
-    members = db.relationship('Charachter', backref='race')
+    race_relationship = db.relationship('Charachter', backref='race')
     def __repr__(self):
         return f"<'{self.id}','{self.race}>"
 
@@ -12,7 +12,7 @@ class Weapon(db.Model):
     __tablename__  = 'weapon'
     id = db.Column(db.Integer,primary_key=True)
     weapon= db.Column(db.String(30),nullable=False)
-    owner = db.relationship('Charachter', backref='weapon')
+    weapon_relationship = db.relationship('Charachter', backref='weapon')
     def __repr__(self):
         return f"<'{self.id}','{self.weapon}'>"
 
@@ -21,7 +21,7 @@ class Role(db.Model):
     __tablename__  = 'role'
     id = db.Column(db.Integer,primary_key=True)
     role = db.Column(db.String(30),nullable=False)
-    members = db.relationship('Charachter', backref='role')
+    role_relationship = db.relationship('Charachter', backref='role')
     def __repr__(self):
         return f"<'{self.id}','{self.role}'>"
 
