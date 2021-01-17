@@ -31,7 +31,7 @@ def view_charachter_creator():
         db.session.add(charachter)
         db.session.commit()
 
-    return render_template('character_creator.html',generatecharachterform=form)
+    return render_template('character_creator.html',form=form)
 
 @app.route('/tournament')
 def view_tournament():
