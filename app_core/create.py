@@ -41,6 +41,7 @@ for weapon in weapons:
 
 dummy_charachter = Charachter(first_name='dummy',second_name='charachter',race_id=1,weapon_id=2,role_id=1)
 db.session.add(dummy_charachter)
+db.session.commit()
 print(Race.query.all())
 print(Weapon.query.all())
 print(Role.query.all())

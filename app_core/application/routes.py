@@ -1,6 +1,6 @@
 
 
-from application import app,db
+from application import app, db
 from flask import render_template, request, redirect,url_for
 #from application.forms
 from application.models import Charachter , Race , Role , Weapon
@@ -9,7 +9,7 @@ import requests
 from requests import get
 from sqlalchemy.orm import sessionmaker
 
-
+#print(Charachter.query.all())
 
 
 ip = get('https://api.ipify.org').text
@@ -29,10 +29,8 @@ def view_tournament():
 
 @app.route('/characterprofiles',methods=['GET','POST'])
 def view_charachter_profiles():
- 
-    #charachters = db.session.query(Charachter).all()
-    #print('We tried to get charachter profiles here '+str(charachters))
-    return render_template('character_profiles.html')
+    charachters = Charachter.query.all()
+    return render_template('character_profiles.html',charachters=charachters)
 
 
 #database query functions 

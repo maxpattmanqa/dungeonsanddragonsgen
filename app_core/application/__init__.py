@@ -9,11 +9,13 @@ from sqlalchemy.orm import relationship
 app = Flask(__name__)
 
 #app.config["SQLALCHEMY_DATABASE_URI"] = getenv("DATABASE_URI")
-app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///data.db'
+app.config["SQLALCHEMY_DATABASE_URI"] = 'sqlite:///site.db'
 #app.config["SQLALCHEMY_DATABASE_URI"]="mysql+pymysql://root:root@host/database_name"
 #app.config["SECRET_KEY"] = getenv("SECRET_KEY")
 # set up database
 db = SQLAlchemy(app)
+
+
 
 from application import routes
 
