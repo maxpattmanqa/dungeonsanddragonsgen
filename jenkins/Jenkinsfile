@@ -2,6 +2,7 @@ pipeline{
     agent any
     environment{
         VERSION = "1.${BUILD_ID}"
+        rollback = 'false'
       //  TEST_DATABASE_URI = "sqlite:///data.db"
       //  TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
@@ -14,19 +15,54 @@ pipeline{
                 sh "bash jenkins/shell-script/test.sh"
             }
         }
-        stage("Build Artifact Stage"){
+        stage("Build Images Stage"){
             steps{
-                sh "bash jenkins/shell-script/build_artifact.sh"
+                //sh "bash jenkins/shell-script/build_artifact.sh"
+                script{
+                    if(env.rollback == 'false'){
+                        nginx_image = docker.build("nginx:latest")
+                        dnd_app_core_img = docker.build(maxpaqzrio/app_core)
+                        sh "echo -"$(tput setaf 2)APP CORE BUILT SUCCESS"" 
+                        dnd_role_gen_img = docker.build(maxpaqzrio/role_generator)
+                        sh "echo -"$(tput setaf 2)ROLE_GEN BUILT SUCCESS"" 
+                        dnd_weapon_gen_img = docker.build(maxpaqzrio/weapon_generator)
+                        sh "echo -"$(tput setaf 2)WEAPON GEN BUILT SUCCESS"" 
+                        dnd_race_gen_img = docker.build(maxpaqzrio/race_generator)
+                        sh "echo -"$(tput setaf 2)RACE_GEN BUILT SUCCESS"" 
+                        dnd_rating_gen_img = docker.build(maxpaqzrio/rating_generator)
+                    }
+
+                }
             }
         }
-        stage("Deposit Artifact Stage"){
+        stage("Deposit Images Stage"){
             steps{
-                sh "bash jenkins/shell-script/deposit_artifact.sh"
+                // sh "bash jenkins/shell-script/deposit_artifact.sh"
+                script{
+                    if(env.rollback == 'false'){
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
+                            dnd_app_core_img.push("${env.VERSION}"),
+                            dnd_role_gen_img.push("${env.VERSION}"),
+                            dnd_weapon_gen_img.push("${env.VERSION}"),
+                            dnd_race_gen_img.push("${env.VERSION}"),
+                            dnd_rating_gen_img.push("${env.VERSION}")
+
+                        }
+                        sh "echo -"$(tput setaf 2)IMAGES SUCCESSFULLY PUSHED TO DOCKER"" 
+
+                        
+                    }
+
+                }
+               
+
+
             }
         }
           stage("Deploy Using ansible"){
             steps{
-                sh "bash jenkins/shell-script/deploy_from_ansible.sh"
+                sh "bash jenkins/ansible-script/install-ansible.sh "
+                sh "bash jenkins/ansible-script/deploy_from_ansible.sh"
             }
         }
     }
