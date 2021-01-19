@@ -21,7 +21,7 @@ pipeline{
         }
         stage("Deposit Artifact Stage"){
             steps{
-                sh "bash jenkins/shell-script/deposit_artifact"
+                sh "bash jenkins/shell-script/deposit_artifact.sh"
             }
 
         }
