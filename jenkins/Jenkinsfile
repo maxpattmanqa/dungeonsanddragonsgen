@@ -56,7 +56,6 @@ pipeline{
 
 
             }
-        }
           stage("Deploy Using ansible"){
             steps{
                 sh "bash jenkins/ansible-script/install-ansible.sh "
