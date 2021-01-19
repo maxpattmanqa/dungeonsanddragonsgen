@@ -40,13 +40,12 @@ pipeline{
                 // sh "bash jenkins/shell-script/deposit_artifact.sh"
                 script{
                     if(env.rollback == 'false'){
-                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){
-                            dnd_app_core_img.push("${env.VERSION}"),
-                            dnd_role_gen_img.push("${env.VERSION}"),
-                            dnd_weapon_gen_img.push("${env.VERSION}"),
-                            dnd_race_gen_img.push("${env.VERSION}"),
-                            dnd_rating_gen_img.push("${env.VERSION}")
-
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_app_core_img.push("${env.VERSION}")}
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_role_gen_img.push("${env.VERSION}")}
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_weapon_gen_img.push("${env.VERSION}")}
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_race_gen_img.push("${env.VERSION}")}
+                        docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_rating_gen_img.push("${env.VERSION}")}
+                           
                         }
                         sh "echo"IMAGES SUCCESSFULLY PUSHED TO DOCKER"" 
 
