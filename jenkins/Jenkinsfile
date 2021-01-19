@@ -23,9 +23,8 @@ pipeline{
             steps{
                 sh "bash jenkins/shell-script/deposit_artifact.sh"
             }
-
         }
-          stage("Deploy From ansible"){
+          stage("Deploy Using ansible"){
             steps{
                 sh "bash jenkins/shell-script/deploy_from_ansible.sh"
             }
