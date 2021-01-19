@@ -20,7 +20,7 @@ pipeline{
                 //sh "bash jenkins/shell-script/build_artifact.sh"
                 script{
                     if(env.rollback == 'false'){
-                        nginx_image = docker.build("nginx:latest")
+                        nginx_image = docker.build(nginx:latest)
                         dnd_app_core_img = docker.build(maxpaqzrio/app_core)
                         sh "echo "APP CORE BUILT SUCCESS"" 
                         dnd_role_gen_img = docker.build(maxpaqzrio/role_generator)
