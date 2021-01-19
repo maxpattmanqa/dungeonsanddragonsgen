@@ -2,10 +2,10 @@
 echo "This is the Test Script"
 
 # Install apt dependencies
-sudo apt-get update
-sudo apt-get install -y python3-pip
-sudo apt-get install -y python3-venv 
-sudo apt-get install -y unzip chromium-browser
+apt-get update
+apt-get install -y python3-pip
+apt-get install -y python3-venv 
+apt-get install -y unzip chromium-browser
 
 # Install chromedriver
 #rm -rf $CHROMEDRIVER_PATH
