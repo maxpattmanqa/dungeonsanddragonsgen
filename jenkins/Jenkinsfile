@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         VERSION = "1.${BUILD_ID}"
-        rollback = 'false'
+       // rollback = 'false'
       //  TEST_DATABASE_URI = "sqlite:///data.db"
       //  TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
@@ -19,10 +19,10 @@ pipeline{
             steps{
                 //sh "bash jenkins/shell-script/build_artifact.sh"
                 script{
-                    if(env.rollback == 'false'){
+                 //   if(env.rollback == 'false'){
                         nginx_image = docker.build(nginx:latest)
                         dnd_app_core_img = docker.build(maxpaqzrio/app_core)
-                        sh "echo "APP CORE BUILT SUCCESS"" 
+                       // sh "echo "APP CORE BUILT SUCCESS"" 
                         dnd_role_gen_img = docker.build(maxpaqzrio/role_generator)
                        // sh "echo "$(tput setaf 2)ROLE_GEN BUILT SUCCESS"" 
                         dnd_weapon_gen_img = docker.build(maxpaqzrio/weapon_generator)
@@ -30,7 +30,7 @@ pipeline{
                         dnd_race_gen_img = docker.build(maxpaqzrio/race_generator)
                        // sh "echo "RACE_GEN BUILT SUCCESS"" 
                         dnd_rating_gen_img = docker.build(maxpaqzrio/rating_generator)
-                    }
+                 //   }
 
                 }
             }
