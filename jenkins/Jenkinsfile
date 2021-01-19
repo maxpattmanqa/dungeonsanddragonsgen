@@ -2,11 +2,11 @@ pipeline{
     agent any
     environment{
         VERSION = "1.${BUILD_ID}"
-        TEST_DATABASE_URI = "sqlite:///data.db"
-        TEST_SECRET_KEY = "test"
-        CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
+      //  TEST_DATABASE_URI = "sqlite:///data.db"
+      //  TEST_SECRET_KEY = "test"
+      //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         AUTHOR = credentials("AUTHOR")
-        SECRET_KEY = credentials("SECRET_KEY")
+      //  SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
         stage("Test Stage"){
