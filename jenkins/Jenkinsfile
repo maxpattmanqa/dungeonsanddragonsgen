@@ -1,34 +1,34 @@
 pipeline{
-        agent any
-        environment {
-            app_version = 'v1'
-            rollback = 'false'
-        }
-        stages{
-            stage('Build Image'){
-                steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            image = docker.build("maxpaqzrio/dungeonsanddragonsgen")
-                        }
-                    }
-                }
-            }
-            stage('Tag & Push Image'){
-                steps{
-                    script{
-                        if (env.rollback == 'false'){
-                            docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials'){
-                                image.push("${env.app_version}")
-                            }
-                        }
-                    }
-                }
-            }
-            stage('Deploy App'){
-                steps{
-                    sh "docker-compose pull && docker-compose up -d"
-                }
+    agent any
+    environment{
+        VERSION = "1.${BUILD_ID}"
+        TEST_DATABASE_URI = "sqlite:///data.db"
+        TEST_SECRET_KEY = "test"
+        CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
+        AUTHOR = credentials("AUTHOR")
+        SECRET_KEY = credentials("SECRET_KEY")
+    }
+    stages{
+        stage("Test Stage"){
+            steps{
+                sh "bash jenkins/shell-script/test.sh"
             }
         }
+        stage("Build Artifact Stage"){
+            steps{
+                sh "bash jenkins/shell-script/build_artifact.sh"
+            }
+        }
+        stage("Deposit Artifact Stage"){
+            steps{
+                sh "bash jenkins/shell-script/deposit_artifact"
+            }
+
+        }
+          stage("Deploy From ansible"){
+            steps{
+                sh "bash jenkins/shell-script/deploy_from_ansible.sh"
+            }
+        }
+    }
 }
