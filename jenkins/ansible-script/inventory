@@ -11,6 +11,7 @@ ansbile_user=maxpa_qzrio
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private+key_file=~/.ssh/id_rsa
 ansible_python_interpreter=/usr/bin/python3
+
 [workers:vars]
 ansbile_user=maxpa_qzrio
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
