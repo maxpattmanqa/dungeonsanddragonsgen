@@ -54,11 +54,16 @@ pipeline{
 
 
             }
-          stage("Deploy Using ansible"){
+          stage("Configure Docker Swarm"){
             steps{
                 sh "bash jenkins/ansible-script/install-ansible.sh "
-                sh "bash jenkins/ansible-script/deploy_from_ansible.sh"
+            //    sh "cd ansible && /home/jenkins/.local/bin/ansibible-playbook -i inventory playbook.yaml"
             }
-        }
+            }
+            // stage("Deploy application Stack"){
+            // steps{
+            //     sh "bash jenkins/deploy_stack.sh"
+            // }
+            // }
     }
 }
