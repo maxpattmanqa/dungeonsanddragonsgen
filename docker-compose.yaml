@@ -39,7 +39,7 @@ services:
           protocol: tcp
           
     race_generator:
-      container_name: dungeonsanddragonsgen_race_generator
+     # container_name: dungeonsanddragonsgen_race_generator
       image:  maxpaqzrio/race_generator
       build: ./race_generator
       ports:
