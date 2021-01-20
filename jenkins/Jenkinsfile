@@ -60,10 +60,10 @@ pipeline{
                 sh "sudo su jenkins && cd jenkins/ansible-script && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
             }
-            // stage("Deploy application Stack"){
-            // steps{
-            //     sh "bash jenkins/deploy_stack.sh"
-            // }
-            // }
+            stage("Deploy application Stack"){
+            steps{
+                sh "bash jenkins/deploy_stack.sh"
+            }
+            }
     }
 }
