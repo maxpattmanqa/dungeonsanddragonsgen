@@ -5,14 +5,15 @@
 10.154.0.7
 10.154.0.8
 
+
 [managers:vars]
-ansbile_user=maxpa_qzrio
+ansbile_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private+key_file=~/.ssh/ansible_id_rsa
 ansible_python_interpreter=/usr/bin/python3
 
 [workers:vars]
-ansbile_user=maxpa_qzrio
+ansbile_user=jenkins
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private+key_file=~/.ssh/ansible_id_rsa
 ansible_python_interpreter=/usr/bin/python3
