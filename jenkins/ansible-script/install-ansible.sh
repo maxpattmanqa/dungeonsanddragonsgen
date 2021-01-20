@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "switching user to jenkins"
-su jenkins
+sudo su - jenkins
 echo "installing ansible"
 mkdir -p ~/.local/bin
 echo 'PATH=$PATH:~/.local/bin' >> ~/.bashrc
