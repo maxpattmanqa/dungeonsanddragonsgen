@@ -1,9 +1,9 @@
 [managers]
-10.154.0.20
+swarm-manager
 
 [workers]
-10.154.0.21
-10.154.0.22
+swarm-worker-1
+swarm-worker-2
 
 
 
