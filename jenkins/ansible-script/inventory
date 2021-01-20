@@ -1,10 +1,10 @@
 [managers]
-swarm-manager
+docker-swarm-manager
 
 [workers]
 
-swarm-worker-1
-swarm-worker-2
+docker-swarm-worker1
+docker-swarm-worker2
 
 [managers:vars]
 ansbile_user=maxpa_qzrio
