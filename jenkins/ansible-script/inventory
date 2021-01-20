@@ -1,9 +1,10 @@
 [managers]
-10.154.0.6
+docker-swarm-manager
 
 [workers]
-10.154.0.7
-10.154.0.8
+docker-swarm-worker1
+docker-swarm-worker2
+
 
 
 [managers:vars]
