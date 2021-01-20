@@ -12,7 +12,7 @@ services:
         target: /etc/nginx/nginx.conf
 
     app_core:
-      container_name: dungeonsanddragonsgen_app_core
+      #container_name: dungeonsanddragonsgen_app_core
       image:  maxpaqzrio/app_core
       build: ./app_core
       ports:
@@ -21,7 +21,7 @@ services:
           protocol: tcp
 
     role_generator:
-      container_name: dungeonsanddragonsgen_role_generator
+     # container_name: dungeonsanddragonsgen_role_generator
       image:  maxpaqzrio/role_generator
       build: ./role_generator
       ports:
@@ -30,7 +30,7 @@ services:
           protocol: tcp
 
     weapons_generator:
-      container_name: dungeonsanddragonsgen_weapons_generator
+      #container_name: dungeonsanddragonsgen_weapons_generator
       image:  maxpaqzrio/weapon_generator
       build: ./weapon_generator
       ports:
@@ -48,7 +48,7 @@ services:
           protocol: tcp
           
     rating_generator:
-      container_name: dungeonsanddragonsgen_rating_generator
+      #container_name: dungeonsanddragonsgen_rating_generator
       image:  maxpaqzrio/rating_generator
       build: ./rating_generator
       ports:
