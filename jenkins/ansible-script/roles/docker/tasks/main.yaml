@@ -19,7 +19,7 @@
 - name: Add Docker Packages to Repository
   apt_repository:
     repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
-    tags: docker
+  tags: docker
 - name: Install Docker
   apt:
     name: docker-ce
