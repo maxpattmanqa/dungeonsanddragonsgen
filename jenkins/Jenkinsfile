@@ -56,7 +56,7 @@ pipeline{
             }
           stage("Configure Docker Swarm"){
             steps{
-            /////    sh "bash jenkins/ansible-script/install-ansible.sh "
+            //////    sh "bash jenkins/ansible-script/install-ansible.sh "
                 sh "sudo su jenkins && cd jenkins/ansible-script && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
             }
