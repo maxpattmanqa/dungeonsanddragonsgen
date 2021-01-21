@@ -6,5 +6,5 @@ scp -i ~/.ssh/ansible_id_rsa docker-compose.yaml jenkins@swarm-manager:/home/jen
 ssh -i ~/.ssh/ansible_id_rsa jenkins@swarm-manager << EOF
     sudo usermod -aG docker ${USER}
     sudo docker stack deploy --compose-file /home/jenkins/docker-compose.yaml stack-project
-
+EOF
 
