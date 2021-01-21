@@ -11,8 +11,8 @@ services:
         source: ./nginx/nginx.conf
         target: /etc/nginx/nginx.conf
 
-    app_core:
-      #container_name: dungeonsanddragonsgen_app_core
+    stack-project_app_core:
+      #container_name: stack-project_app_core
       image:  maxpaqzrio/app_core
       build: ./app_core
       ports:
@@ -20,8 +20,8 @@ services:
           published: 5100
           protocol: tcp
 
-    role_generator:
-     # container_name: dungeonsanddragonsgen_role_generator
+    stack-project_role_generator:
+      #container_name: stack-project_role_generator
       image:  maxpaqzrio/role_generator
       build: ./role_generator
       ports:
@@ -29,8 +29,8 @@ services:
           published: 5001
           protocol: tcp
 
-    weapons_generator:
-      #container_name: dungeonsanddragonsgen_weapons_generator
+    stack-project_weapons_generator:
+      #container_name: stack-project_weapons_generator
       image:  maxpaqzrio/weapon_generator
       build: ./weapon_generator
       ports:
@@ -38,8 +38,8 @@ services:
           published: 5002
           protocol: tcp
           
-    race_generator:
-     # container_name: dungeonsanddragonsgen_race_generator
+    stack-project_race_generator:
+      #container_name: stack-project_race_generator
       image:  maxpaqzrio/race_generator
       build: ./race_generator
       ports:
@@ -47,8 +47,8 @@ services:
           published: 5003
           protocol: tcp
           
-    rating_generator:
-      #container_name: dungeonsanddragonsgen_rating_generator
+    stack-project_rating_generator:
+     # container_name: stack-project_rating_generator
       image:  maxpaqzrio/rating_generator
       build: ./rating_generator
       ports:

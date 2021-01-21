@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify, Response
 import random
 app = Flask(__name__)
 
-@app.route('/get/text', methods=['GET'])
+@app.route('/get/role_id', methods=['GET'])
 def get_text():
     value = random.randint(0,5)
     return Response(str(value), mimetype='text/plain')

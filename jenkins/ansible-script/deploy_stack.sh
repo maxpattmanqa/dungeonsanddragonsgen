@@ -1,3 +1,4 @@
+
 #!/bin/bash
 echo "This is the Deploy Docker Stack"
 #export DATABASE_URI=${DATABASE_URI}

@@ -9,15 +9,27 @@ class TestBase(TestCase):
         return app
 
 class TestAPI(TestBase):
-
-    def test_football(self):
-    # We will mock a response of 1 and test that we get football returned.
-        with patch('requests.get') as g:
-            g.return_value.text = "1"
-
-            response = self.client.get(url_for('sport'))
-            self.assertIn(b'Football', response.data)
     
     def  test_generate_role(self):
         with patch('requests.get')as g:
-            g.return_value.text = "Sword"
+            g.return_value.text = "1"
+
+            response = self.client.get(url_for('generate_role'))
+            self.assertIn(b'1',response.data)
+
+    def test_generate_race(self):
+         with patch('requests.get')as g:
+            g.return_value.text = "1"
+
+            response = self.client.get(url_for('generate_race'))
+            self.assertIn(b'1',response.data)
+
+    def test_generate_weapon(self):
+        with patch('requests.get')as g:
+            g.return_value.text = "1"
+
+            response = self.client.get(url_for('generate_weapon'))
+            self.assertIn(b'1',response.data)
+
+    def test_generate_rating(self):
+
