@@ -13,7 +13,7 @@ pipeline{
         stage("Test Stage"){
             steps{
                 //sh " cd testing && . run_pytest.sh "
-                sh "echo "hello testing""
+                sh "echo "
             }
         }
         stage("Build Images Stage"){
