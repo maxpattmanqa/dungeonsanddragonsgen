@@ -5,10 +5,6 @@
     - git
     state: latest
     update_cache: true
-- name: 'make sure that the nginx service is started'
-  service:
-    name: nginx
-    state: started
 - name: 'templating nginx'
   template:
     src: nginx.conf
