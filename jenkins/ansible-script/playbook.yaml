@@ -1,9 +1,3 @@
-- name: 'set up nginx load balancer'
-  become: true
-  hosts: nginxlb
-  roles:
-    - nginx
-  
 - name: 'initialize docker swarm'
   become: true
   hosts: managers
@@ -18,3 +12,8 @@
     - docker 
     - swarm-worker
 
+- name: 'set up nginx load balancer'
+  become: true
+  hosts: nginxlb
+  roles:
+    - nginx
