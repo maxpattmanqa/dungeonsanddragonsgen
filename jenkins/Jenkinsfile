@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         VERSION = "1.${BUILD_ID}"
-       // rollback = 'false'
+        rollback = 'false'
       //  TEST_DATABASE_URI = "sqlite:///data.db"
       //  TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
