@@ -1,4 +1,4 @@
-- name : set up nginx load balancer
+- name: set up nginx load balancer
   become: true
   hosts:  nginx-lb
   roles:  nginx
