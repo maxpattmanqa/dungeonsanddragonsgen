@@ -46,7 +46,7 @@ pipeline{
                         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_weapon_gen_img.push("${env.VERSION}")}
                         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_race_gen_img.push("${env.VERSION}")}
                         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_rating_gen_img.push("${env.VERSION}")}  
-                        sh "echo"IMAGES SUCCESSFULLY PUSHED TO DOCKER"" 
+                        
                         }
                     }
                 }
