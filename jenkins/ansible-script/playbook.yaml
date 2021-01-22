@@ -1,6 +1,6 @@
 - name : set up nginx load balancer
   become: true
-  hosts:  nginx
+  hosts:  nginx-lb
   roles:  nginx
   
 - name: initialize docker swarm
