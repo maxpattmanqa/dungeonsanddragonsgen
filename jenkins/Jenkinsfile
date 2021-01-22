@@ -15,7 +15,8 @@ pipeline{
             steps{
                 //sh " cd testing && . run_pytest.sh "
                // sh "echo "
-            } 
+            }
+        } 
             
         stage('Build App'){
             steps{
