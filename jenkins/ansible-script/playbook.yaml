@@ -1,6 +1,6 @@
 - name: 'set up nginx load balancer'
   become: true
-  hosts: nginx-lb
+  hosts: nginxlb
   roles:
     - nginx
   
