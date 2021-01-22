@@ -4,6 +4,8 @@ services:
       #container_name: stack-project_app_core
       image:  maxpaqzrio/app_core
       build: ./app_core
+      deploy:
+        replicas: 5
       ports:
         - target: 5100
           published: 5100
