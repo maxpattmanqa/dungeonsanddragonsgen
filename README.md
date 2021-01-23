@@ -73,7 +73,7 @@ Shortly after the CI/CD material was comprehended , I was able to focus on the C
 ## Architecture
 
 ### Application Design
-![](images/ApplicationDescription.PNG)
+![](images/applicationdes.png)
 
 The application itself is very simple . The App-core is responsible for requesting information from the services . The generation of a charachter happens when the app-core requests nformation back from services #1 #2 & #3 .In this case each return a random number between 0-5 . each of these numbers corresponds to either a race , role or a weapon respectivly within the database. this then triggers the app-core to send these numbers as a json package to service #4 , service 4 then simply adds each number together . This is then returned to the app-core as a rating for the charachter. this is then added to the database.  
 
