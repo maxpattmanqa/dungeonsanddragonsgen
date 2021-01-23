@@ -28,7 +28,7 @@ def view_charachter_creator():
         int(role_num)
         rating= generate_rating(race_num=race_num,role_num=role_num,weapon_num=weapon_num)
         int(rating)
-        charachter = Charachter(first_name=first_name,second_name=second_name,rating=int(rating,race_id=int(race_num),weapon_id=int(weapon_num),role_id=int(role_num)))
+        charachter = Charachter(first_name=first_name,second_name=second_name,rating=int(rating),race_id=int(race_num),weapon_id=int(weapon_num),role_id=int(role_num))
         db.session.add(charachter)
         db.session.commit()
 
