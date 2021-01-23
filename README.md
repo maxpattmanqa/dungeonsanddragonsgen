@@ -75,11 +75,13 @@ Shortly after the CI/CD material was comprehended , I was able to focus on the C
 ### Application Design
 ![](images/applicationdes.png)
 
-The application itself is very simple . The App-core is responsible for requesting information from the services . The generation of a charachter happens when the app-core requests nformation back from services #1 #2 & #3 .In this case each return a random number between 0-5 . each of these numbers corresponds to either a race , role or a weapon respectivly within the database. this then triggers the app-core to send these numbers as a json package to service #4 , service 4 then simply adds each number together . This is then returned to the app-core as a rating for the charachter. this is then added to the database.  
+The application itself is very simple . The App-core is responsible for requesting information from the services . The generation of a charachter happens when the app-core requests nformation back from services #1 #2 & #3 .In this case each return a random number between 0-5 . each of these numbers corresponds to either a race , role or a weapon respectivly within the database. this then triggers the app-core to send these numbers as a json package to service #4 , service 4 then simply adds each number together . This is then returned to the app-core as a rating for the charachter. this is then added to the database. Changes to the database of charachters are viewable from the Charachter Profiles page. 
 
 
 ### Database Structure
 ![](images/ERDdiagram.png)
+
+The database structure consists of 4 tables . the numbers generated from the services corresepond to a Race-id , Weapon-id and a Role-id respectivly which then in turn relate to a string value e.g {'Elf' 'Axe' 'Warrior'} , this database is created by running the create.py file found in the application core.  
 
 
 ### CI/CD Pipeline
@@ -127,20 +129,25 @@ Anisbile is used to provision our application servers with docker, docker-compos
 
 ## Project Tracking
 LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
+
+Trello was used for project tracking the key steps in development. Trello is super useful in team projects and it is a fantastic way to keep track , designate and plan tasks and it is worth putting the time into. 
+My useage of trello was appropriate for the project it helped me keep track of the main stages of application development without becoming a development time sink.   
 ![](images/kanban.png)
-
-
-
-
-
-
-
 
 ## Risk Assessment
 
+![](images/riskassessment.png)
+
+
 ## Testing
 
+
+
+
+
 ## Front-End Design
+
+* The Design of the front end is very basic but is navigateable and allows user functionality to demonstrate Create and Read functionality 
 
 
 * The Home Page 
@@ -156,8 +163,15 @@ LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 
 ## Known Issues 
 
+* Updating and Deletion functionality are missing which would have allowed the app to demonstrate full CRUD functionality
+
+* Very Basic App Functionality 
+
 ## Future Improvements
 
+* The Tournaments page would be a great addition. the idea being of creating some sort of a game that would match the charachters against each other and with a combination of rating & randomness winners would be    decided  
+
 ## Authors
+Max Pattman
 
 
