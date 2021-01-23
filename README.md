@@ -104,20 +104,25 @@ Git hub was my repository of choice . Webhooks settings can be set to interact w
 Jenkins is an open source build server and CI/CD pipeline tool. in this project jenkins is set up to connect to github via a webhook. when jenkins receives the notification it pulls the repository to its server.
 
 *environment credentials* : Jenkins allows us to set credentials that we want to keep secret for security reasons such as our SECRET_KEY and our DATABASE_URI
+
 ![](images/credentials.PNG )
 
-*Jenkinsfiles*            : Allow us to write our infrastructure pipelines as code by defining the stages of the pipeline and the steps taken in each stage
+*Jenkinsfiles*            : Allow us to write our infrastructure pipelines as code by defining the stages of the pipeline and the steps taken in each stage. in this pipeline docker-compose is used to build the   application images and push them to the artifact repository , in this case Docker Hub
+
 ![](images/jenkinspipeline.PNG)
 
 ### Ansible 
 
-In this application 
-
-###### Docker Hub
+In this application ansible is installed on the jenkins server and is used for our applications deployment, with jenkins as the user of Ansible , we are able to use Ansible to provision our deployment servers and deploy our application using Docker Stack.     
 
 ###### NGINX
 
+Ansible is used to provision and deploy NGINX on a server to act as a load balancer for our application , Load balancers are typically used to increase user capacity and reliability of applications.
+
 ###### Swarm
+Anisbile is used to provision our application servers with docker, docker-compose ,docker-swarn and docker-stack . Using the SCP transfer protocol, Ansible transfers the projects docker-compose.yaml file to the server that we have designated as our Swarm manager . Its from here we can call docker-stack to deploy our application using our docker-compose.yaml file. which in turn is able to pull the collection of our application images to the Swarm manager and deploy our application 
+
+![](images/gcp.PNG)
 
 
 ## Project Tracking
@@ -125,11 +130,9 @@ LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 ![](images/kanban.png)
 
 
-![](images/gcp.PNG)
 
-![](images/createcharacter.PNG)
-![](images/gencharater.PNG)
-![](images/homepage.PNG )
+
+
 
 
 
@@ -138,6 +141,18 @@ LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 ## Testing
 
 ## Front-End Design
+
+
+* The Home Page 
+![](images/homepage.PNG )
+ 
+
+![](images/createcharacter.PNG)
+
+
+* The Charachter generator
+
+![](images/gencharater.PNG)
 
 ## Known Issues 
 
