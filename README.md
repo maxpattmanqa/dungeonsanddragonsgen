@@ -91,14 +91,14 @@ Using WSL i can create a coding enviroment that is more efficient and consistent
 
 ### Cloud Development Server
 
-After pushing to Github i would ssh into my cloud development server and pull the codebase from the github repository 
+After pushing to Github I would ssh into my cloud development server and pull the codebase from the Github repository. 
 It was still essential to test the application, the system enviroments & scripts etc on a GCP cloud server. 
 
 ### Github
-Git hub was my repository of choice. Webhooks settings can be set to interact with the jenkins build server. when code is pushed to the repository it sends a notification to the jenkins server   
+Github was my repository of choice. Webhooks settings can be set to interact with the Jenkins build server. when code is pushed to the repository it sends a notification to the jenkins server   
 
 ### Jenkins 
-Jenkins is an open source build server and CI/CD pipeline tool. in this project jenkins is set up to connect to github via a webhook. when jenkins receives the notification, it pulls the repository to its server.
+Jenkins is an open source build server and CI/CD pipeline tool. in this project jenkins is set up to connect to Github via a webhook. when jenkins receives the notification, it pulls the repository to its server.
 
 *environment credentials*: Jenkins allows us to set credentials that we want to keep secret for security reasons such as our SECRET_KEY and our DATABASE_URI
 
@@ -130,9 +130,14 @@ My useage of trello was appropriate for the project it helped me keep track of t
 
 ## Risk Assessment
 
+* Find below my risk assessment. If the application involved sensitive information this risk assessment would reflect that. However, the majority of risk for this project is to do with infrastructure out
+ of my control failing and standard threats to information being breached in the database
+
 ![](images/riskassessment.png)
 
 ## Testing
+
+
 
 
 
