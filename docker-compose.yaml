@@ -12,7 +12,7 @@ services:
           protocol: tcp
       environment: 
         - DATABASE_URI=$DATABASE_URI
-        - SECRET_KEY = $SECRET_KEY
+        - SECRET_KEY= $SECRET_KEY
 
     stack-project_role_generator:
       #container_name: stack-project_role_generator
