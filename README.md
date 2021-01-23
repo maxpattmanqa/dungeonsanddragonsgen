@@ -46,9 +46,9 @@ For services #2, #3 and #4 you need to create 2 different implementations, must 
     * **Container tool used : Docker**
 
     * **Container - orchestration tools used :**
-                                            * **Docker-Compose**  
-                                            * **Docker-Swarm** 
-                                            * **Docker-Stack**
+        * **Docker-Compose**  
+        * **Docker-Swarm** 
+        * **Docker-Stack**
 
 * As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
     * **Technology used : Ansible**
