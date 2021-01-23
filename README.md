@@ -84,6 +84,12 @@ Shortly after the CI/CD material was comprehended , I was able to focus on the C
 LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 ![](images/kanban.png)
 
+![](images/credentials.PNG )
+![](images/gcp.PNG)
+![](images/jenkinspipeline.PNG)
+![](images/credentials.PNG)
+![](images/gcp.PNG)
+![](images/jenkinspipeline.PNG)
 
 
 
