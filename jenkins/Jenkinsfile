@@ -8,7 +8,8 @@ pipeline{
         TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         //AUTHOR = credentials("AUTHOR")
-      SECRET_KEY = credentials("SECRET_KEY")
+        DATABASE_URI=credentials(DATABASE_URI)
+        SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
         stage("Test Stage"){
