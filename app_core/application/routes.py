@@ -8,10 +8,12 @@ from requests import get
 from application.forms import GenerateCharachterForm
 from flask.json import jsonify
 
+#route to homepage
 @app.route('/')
 def view_homepage():
     return render_template('home.html')
 
+#route to the character creator screem
 @app.route('/charachtercreator',methods=['GET','POST'])
 def view_charachter_creator():
     form = GenerateCharachterForm()
@@ -34,15 +36,18 @@ def view_charachter_creator():
 
     return render_template('character_creator.html',form=form)
 
+#route to the tournament page 
 @app.route('/tournament')
 def view_tournament():
     return render_template('tournament.html')
 
+#route to the charachterprofiles page
 @app.route('/characterprofiles',methods=['GET','POST'])
 def view_charachter_profiles():
     charachters = Charachter.query.all()
     return render_template('character_profiles.html',charachters=charachters)
 
+# this calls 
 @app.route('/get/generate_weapon', methods=['GET','POST'])
 def generate_weapon():
     response = requests.get('http://stack-project_weapons_generator:5002/get/weapon_id')
