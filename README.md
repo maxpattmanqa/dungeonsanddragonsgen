@@ -87,9 +87,9 @@ LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 ![](images/credentials.PNG )
 ![](images/gcp.PNG)
 ![](images/jenkinspipeline.PNG)
-![](images/credentials.PNG)
-![](images/gcp.PNG)
-![](images/jenkinspipeline.PNG)
+![](images/createcharacter.PNG)
+![](images/gencharater.PNG)
+![](images/homepage.PNG )
 
 
 
