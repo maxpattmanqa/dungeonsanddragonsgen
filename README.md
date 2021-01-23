@@ -64,9 +64,9 @@ For services #2, #3 and #4 you need to create 2 different implementations, must 
 
 ### My Approach
 
-    My ideal approach would have been to have the CI/CD system in place at least end to end in some working form. As projects develop there are always going to be changes to how the pipeline functions, this is inevitable as applications change over time. However having end to end function from development to delivery at the beginning of development , reduces the time to market for the application.
-    Due to time constraints and not having been taught the entirety of the material at the point of inception of the project . It was neccessary to parallelize the development of the application and the CI/CD pipeline.
-    Shortly after the CI/CD material was comprehended , I was able to focus on the CI/CD pipeline. Once the Infrastructure was complete, development on the application became much more streamlined in terms of effectivly dealing with errors and debugging.   
+My ideal approach would have been to have the CI/CD system in place at least end to end in some working form. As projects develop there are always going to be changes to how the pipeline functions, this is inevitable as applications change over time. However having end to end function from development to delivery at the beginning of development , reduces the time to market for the application.
+Due to time constraints and not having been taught the entirety of the material at the point of inception of the project . It was neccessary to parallelize the development of the application and the CI/CD pipeline.
+Shortly after the CI/CD material was comprehended , I was able to focus on the CI/CD pipeline. Once the Infrastructure was complete, development on the application became much more streamlined in terms of effectivly dealing with errors and debugging.   
 
 
 
