@@ -74,19 +74,59 @@ Shortly after the CI/CD material was comprehended , I was able to focus on the C
 
 ### Application Design
 ![](images/ApplicationDescription.png)
+
+The application itself is very simple . The App-core is responsible for requesting information from the services . The generation of a charachter happens when the app-core requests nformation back from services #1 #2 & #3 .In this case each return a random number between 0-5 . each of these numbers corresponds to either a race , role or a weapon respectivly within the database. this then triggers the app-core to send these numbers as a json package to service #4 , service 4 then simply adds each number together . This is then returned to the app-core as a rating for the charachter. this is then added to the database.  
+
+
 ### Database Structure
 ![](images/ERDdiagram.png)
+
+
 ### CI/CD Pipeline
 ![](images/CI_CDPIPELINE.png)
+
+###### Local host (Windows sub system for linux {WSL})
+
+I made the decision early on to preference developing the application using WSL on my local host. My IDE of choice for this project was **VS-CODE**
+
+Typically when developing on cloud servers i have found it frustrating being unable to use tools such as code-completion and linting to reduce my development time.
+Using WSL i am able to create a coding enviroment that is more efficient and consistent (for me) to use.     
+
+###### Cloud Development Server
+
+After pushing to Github i would ssh into my cloud development server and pull the codebase from the github repository 
+It was still essential to test the application, the system enviroments & scripts etc on a GCP cloud server. 
+
+###### Github
+Git hub was my repository of choice . Webhooks settings can be set to interact with the jenkins build server. when code is pushed to the repository it sends a notification to the jenkins server   
+
+###### Jenkins 
+Jenkins is an open source build server and CI/CD pipeline tool. in this project jenkins is set up to connect to github via a webhook. when jenkins receives the notification it pulls the repository to its server.
+
+*environment credentials* : Jenkins allows us to set credentials that we want to keep secret for security reasons such as our SECRET_KEY and our DATABASE_URI
+![](images/credentials.PNG )
+
+*Jenkinsfiles*            : Allow us to write our infrastructure pipelines as code by defining the stages of the pipeline and the steps taken in each stage
+![](images/jenkinspipeline.PNG)
+
+###### Ansible 
+
+In this application 
+
+###### Docker Hub
+
+###### NGINX
+
+###### Swarm
 
 
 ## Project Tracking
 LINK TO KANBAN BOARD : https://trello.com/b/FFxPq00X/dungeonsanddragonsgen
 ![](images/kanban.png)
 
-![](images/credentials.PNG )
+
 ![](images/gcp.PNG)
-![](images/jenkinspipeline.PNG)
+
 ![](images/createcharacter.PNG)
 ![](images/gencharater.PNG)
 ![](images/homepage.PNG )
