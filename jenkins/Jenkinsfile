@@ -4,11 +4,11 @@ pipeline{
         VERSION = "1.${BUILD_ID}"
         rollback = 'false'
         docker_creds = credentials('docker-hub-credentials')
-      //  TEST_DATABASE_URI = "sqlite:///data.db"
-      //  TEST_SECRET_KEY = "test"
+        TEST_DATABASE_URI = "sqlite:///data.db"
+        TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         //AUTHOR = credentials("AUTHOR")
-      //  SECRET_KEY = credentials("SECRET_KEY")
+      SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
         stage("Test Stage"){
