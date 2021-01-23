@@ -17,7 +17,7 @@ A dungeon and dragons character generator , built using a microservice structure
 * [Future Improvements](#future-improvements)
 * [Authors](#authors)
 
-## Breif 
+## Brief 
 To create a service-orientated architecture for an application, this application must be composed of at least 4 services that work together
 
 * Service #1 The core service –  Renders Jinja2 templates to interact with the application, it will be responsible for communicating with the other 3 services, and finally for persisting some data in an SQL database.
