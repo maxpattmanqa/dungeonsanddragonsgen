@@ -21,7 +21,7 @@ pipeline{
             
         stage('Build App'){
             steps{
-                sh "docker-compose build -e ${DATABASE_URI} -e ${SECRET_KEY}--parallel"
+                sh "docker-compose build -e ${DATABASE_URI} ${SECRET_KEY}--parallel"
             }
         }
         stage('Push App to Docker-Hub'){
