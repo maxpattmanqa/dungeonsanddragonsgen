@@ -3,7 +3,7 @@ pipeline{
     environment{
         VERSION = "1.${BUILD_ID}"
         rollback = 'false'
-        docker_creds = credentials('docker-hub-credentials')
+        docker-hub-credentials = credentials('docker-hub-credentials')
         TEST_DATABASE_URI = "sqlite:///data.db"
         TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
