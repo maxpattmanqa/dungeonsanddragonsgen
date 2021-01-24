@@ -14,7 +14,7 @@ pipeline{
     stages{
         stage("Test Stage"){
             steps{
-                sh " cd testing && . run_pytest_local.sh "
+                sh " cd testing && . run_pytest_local.sh"
                 
             }
         } 
