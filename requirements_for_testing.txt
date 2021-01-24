@@ -11,5 +11,5 @@ flask_wtf
 selenium==3.141.0
 Flask-Testing==0.8.0
 pytest==6.1.0
-pytest-cov==2.10.1pytest-cov==2.11.1
+pytest-cov==2.11.1
 requests==mock-1.8.0
