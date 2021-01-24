@@ -6,6 +6,6 @@ def generate_rating_num():
     race_num = data["race_num"]
     role_num = data["role_num"]
     weapon_num=data["weapon_num"]
-    value = int(race_num) + int(role_num) + int(weapon_num)
-    
+    #value = int(race_num) + int(role_num) + int(weapon_num)
+    value = 1
     return Response(str(value),mimetype='text/plain')
