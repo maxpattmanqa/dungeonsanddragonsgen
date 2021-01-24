@@ -8,15 +8,15 @@ pip3 install -r requirements_for_testing.txt
 cd ../app_core
 pytest --cov application
 
-# cd ../weapon_generator
-# pytest --cov api
+cd ../weapon_generator
+pytest --cov api
 
-# cd ../race_generator
-# pytest --cov api
-# cd ../role_generator
-# pytest --cov api
-# cd ../rating_generator
-# pytest --cov api
+cd ../race_generator
+pytest --cov api
+cd ../role_generator
+pytest --cov api
+cd ../rating_generator
+pytest --cov api
 
-# cd ../testing
+cd ../testing
 
