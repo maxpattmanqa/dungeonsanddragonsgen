@@ -43,11 +43,11 @@ class TestRoutes(TestBase):
             response = self.client.get(url_for('generate_race'))
             self.assertIn(b'1', response.data)
 
-    def test_generate_rating(self):
-        with requests_mock.mock as m:
-            m.post('http://stack-project_rating_generator:5005/post/rating_num', json={"race_num":1,"role_num":2,"weapon_num":3})
-            response = self.client.get(url_for('generate_rating'))
-            self.assertIn(b'6',response.data)
+    # def test_generate_rating(self):
+    #     with requests_mock.mock as m:
+    #         m.post('http://stack-project_rating_generator:5005/post/rating_num', json={"race_num":1,"role_num":2,"weapon_num":3})
+    #         response = self.client.get(url_for('generate_rating'))
+    #         self.assertIn(b'6',response.data)
 
 
 
@@ -164,8 +164,8 @@ def provision_db():
     dummy_charachter = Charachter(first_name='dummy',second_name='charachter',rating=1,race_id=1,weapon_id=2,role_id=1)
     db.session.add(dummy_charachter)
     db.session.commit() 
-    print(Race.query.all())
-    print(Weapon.query.all())
-    print(Role.query.all())
-    print(Charachter.query.all())
+    # print(Race.query.all())
+    # print(Weapon.query.all())
+    # print(Role.query.all())
+    # print(Charachter.query.all())
 
