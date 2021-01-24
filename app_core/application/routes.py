@@ -21,10 +21,8 @@ def view_charachter_creator():
         first_name= form.first_name.data
         second_name=form.second_name.data
         race_num = generate_race()
-        
         int(race_num)
         weapon_num = generate_weapon()
-       
         int(weapon_num)
         role_num = generate_role()
         int(role_num)
@@ -88,8 +86,8 @@ def get_weapon_entry_by_id(weapon_id):
     return Weapon.query.filter_by(id=weapon_id).first()
 
 
-def insert_charachter_entry(first_name, second_name,race_id,weapon_id,role_id):
-    db_insert_entry = Charachter(first_name=first_name,second_name=second_name,race_id=int(race_id),weapon_id=int(weapon_id),role_id=int(role_id))
+def insert_charachter_entry(first_name, second_name,rating,race_id,weapon_id,role_id):
+    db_insert_entry = Charachter(first_name=first_name,second_name=second_name,rating=int(rating),race_id=int(race_id),weapon_id=int(weapon_id),role_id=int(role_id))
     db.session.add(db_insert_entry)
     db.session.commit()
 

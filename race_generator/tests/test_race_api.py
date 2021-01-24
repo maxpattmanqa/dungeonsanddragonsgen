@@ -1,17 +1,24 @@
-# from unitests.mock import patch
-# from flask import url_for
-# from flask_testing import TestCase
-# from application import app
+import pytest
+import unittest
+from flask import url_for
+from flask_testing import TestCase
+from api import app
+from unittest.mock import patch
+import requests_mock
 
 
-# class TestBase(TestCase):
+class TestBase(TestCase):
 
-#     def create_app(self):
-#         return app
+    def create_app(self):
+        return app
 
 
-# class TestAPI(TestBase):
-#     def test_race_gen_response(self):
-#         with patch('requests.get') as g:
-#             g.return_value.text = "1"
+class TestAPI(TestBase):
+    def test_get_race_id(self):
+        with patch('requests.get') as g:
+            g.return_value.text = "1"
+            response = self.client.get(url_for('get_race_id'))
+            self.assertTrue(int(response.data) <6 and int(response.data) >=0 )
+            
+
 

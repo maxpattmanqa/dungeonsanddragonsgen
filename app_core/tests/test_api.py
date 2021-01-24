@@ -31,5 +31,5 @@ class TestAPI(TestBase):
             response = self.client.get(url_for('generate_weapon'))
             self.assertIn(b'1',response.data)
 
-    def test_generate_rating(self):
+
 

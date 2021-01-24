@@ -1,8 +1,17 @@
 #!/bin/bash
+cd ../app_core
+pytest --cov application
 
-pytest --cov=../app_core
-pytest --cov=../race_generator
-pytest --cov=../weapon_generator
-pytest --cov=../role_generator
-pytest --cov=../rating_generator
+cd ../weapon_generator
+pytest --cov api
+
+cd ../race_generator
+pytest --cov api
+cd ../role_generator
+pytest --cov api
+cd ../rating_generator
+pytest --cov api
+
+cd ../testing
+
 
