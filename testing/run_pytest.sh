@@ -23,3 +23,12 @@ pip3 install pytest pytest-cov
 
 # Run pytest
 #pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+
+
+
+pytest --cov ../app_core/application
+pytest --cov ../race_generator
+pytest --cov ../weapon_generator
+pytest --cov ../role_generator
+pytest --cov ../rating_generator
+

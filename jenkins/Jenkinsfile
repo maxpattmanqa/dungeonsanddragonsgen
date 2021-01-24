@@ -2,32 +2,83 @@ pipeline{
     agent any
     environment{
         VERSION = "1.${BUILD_ID}"
-      //  TEST_DATABASE_URI = "sqlite:///data.db"
-      //  TEST_SECRET_KEY = "test"
+        rollback = 'false'
+        dockerhubcredentials = credentials('docker-hub-credentials')
+        TEST_DATABASE_URI = "sqlite:///data.db"
+        TEST_SECRET_KEY = "test"
       //  CHROMEDRIVER_PATH = "/home/jenkins/chromedriver"
         //AUTHOR = credentials("AUTHOR")
-      //  SECRET_KEY = credentials("SECRET_KEY")
+        DATABASE_URI = credentials("DATABASE_URI")
+        SECRET_KEY = credentials("SECRET_KEY")
     }
     stages{
         stage("Test Stage"){
             steps{
-                sh "bash jenkins/shell-script/test.sh"
+                //sh " cd testing && . run_pytest.sh "
+                sh "echo hello testing"
             }
-        }
-        stage("Build Artifact Stage"){
+        } 
+            
+        stage('Build App'){
             steps{
-                sh "bash jenkins/shell-script/build_artifact.sh"
+                sh "docker-compose build --parallel"
             }
         }
-        stage("Deposit Artifact Stage"){
+        stage('Push App to Docker-Hub'){
             steps{
-                sh "bash jenkins/shell-script/deposit_artifact.sh"
+                sh "docker login -u ${dockerhubcredentials_USR} -p ${dockerhubcredentials_PSW}"
+                sh "docker-compose push"
             }
         }
-          stage("Deploy Using ansible"){
+        // }
+        // stage("Build Images Stage"){
+        //     steps{
+        //         //sh "bash jenkins/shell-script/build_artifact.sh"
+        //         // script{
+        //         //  //   if(env.rollback == 'false'){
+        //         //    //     nginx_image = docker.build(nginx:latest)
+        //         //         dnd_app_core_img = docker.build("maxpaqzrio/app_core","app_core")
+        //         //        // sh "echo "APP CORE BUILT SUCCESS"" 
+        //         //         dnd_role_gen_img = docker.build("maxpaqzrio/role_generator","role_generator")
+        //         //        // sh "echo "$(tput setaf 2)ROLE_GEN BUILT SUCCESS"" 
+        //         //         dnd_weapon_gen_img = docker.build("maxpaqzrio/weapon_generator","weapon_generator")
+        //         //        // sh "echo "WEAPON GEN BUILT SUCCESS"" 
+        //         //         dnd_race_gen_img = docker.build("maxpaqzrio/race_generator","race_generator")
+        //         //        // sh "echo "RACE_GEN BUILT SUCCESS"" 
+        //         //         dnd_rating_gen_img = docker.build("maxpaqzrio/rating_generator","rating_generator")
+        //         //  //   }
+
+        //         // }
+        //             sh ""
+        //     }
+        // }
+        // stage("Deposit Images Stage"){
+        //     steps{
+        //         // sh "bash jenkins/shell-script/deposit_artifact.sh"
+        //         // script{
+        //         //     if(env.rollback == 'false'){
+        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_app_core_img.push("${env.VERSION}")}
+        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_role_gen_img.push("${env.VERSION}")}
+        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_weapon_gen_img.push("${env.VERSION}")}
+        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_race_gen_img.push("${env.VERSION}")}
+        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_rating_gen_img.push("${env.VERSION}")}  
+                        
+        //         //         }
+        //         //     }
+
+        //         }
+        //     }
+         
+          stage("Configure Docker Swarm"){
             steps{
-                sh "bash jenkins/shell-script/deploy_from_ansible.sh"
+            //////    sh "bash jenkins/ansible-script/install-ansible.sh "
+                sh "sudo su jenkins && cd jenkins/ansible-script && /home/jenkins/.local/bin/ansible-playbook -i inventory playbook.yaml"
             }
-        }
+            }
+            stage("Deploy application Stack"){
+            steps{
+                sh "bash jenkins/ansible-script/deploy_stack.sh"
+            }
+            }
     }
 }

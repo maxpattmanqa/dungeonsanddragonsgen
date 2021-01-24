@@ -12,7 +12,8 @@
             <th> Race </th>
             <th> Weapon </th>
             <th> Role </th>
-        <tr>
+            <th> Rating </th>
+        </tr>
         {% for charachter in charachters  %}
            <tr> 
                
@@ -21,6 +22,7 @@
             <td> {{charachter.race.race}} </td>
             <td> {{charachter.weapon.weapon}}</td>
             <td> {{charachter.role.role}}</td>
+            <td> {{charachter.rating}} </td>
                 
            </tr>
           

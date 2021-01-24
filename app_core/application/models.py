@@ -30,9 +30,10 @@ class Charachter(db.Model):
     id = db.Column(db.Integer,primary_key=True)
     first_name = db.Column(db.String(30),nullable=False)
     second_name = db.Column(db.String(30),nullable=False)
+    rating = db.Column(db.Integer,nullable=False)
     race_id =db.Column(db.Integer,db.ForeignKey('race.id'))
     weapon_id=db.Column(db.Integer,db.ForeignKey('weapon.id'))
     role_id=db.Column(db.Integer,db.ForeignKey('role.id'))
     def __repr__(self):
-        return f"<'{self.id}','{self.first_name}','{self.second_name}','{self.race_id}','{self.weapon_id}','{self.role_id}'>"
+        return f"<'{self.id}','{self.first_name}','{self.second_name}','{self.race_id}','{self.weapon_id}','{self.role_id}','{self.rating}'>"
 
