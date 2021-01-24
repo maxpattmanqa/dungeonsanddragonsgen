@@ -1,5 +1,6 @@
 #!/bin/bash
 sudo apt-get install python3
+sudo apt-get install python3-venv
 sudo apt-get install python3-pip
 
 cd ../app_core
