@@ -1,4 +1,8 @@
+
 #!/bin/bash
+
+
+
 cd ../app_core
 pytest --cov application
 
