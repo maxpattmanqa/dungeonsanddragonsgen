@@ -15,7 +15,7 @@ pipeline{
         stage("Test Stage"){
             steps{
                 
-                sh " . testing/run_pytest_local.sh"
+                sh " . testing/run_pytest.sh"
                 
             }
         } 
