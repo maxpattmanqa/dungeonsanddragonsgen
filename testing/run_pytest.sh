@@ -2,10 +2,6 @@
 #!/bin/bash
 apt-get install python3
 apt-get install python3-pip
-python3 -m venv venv
-source venv/bin/activate
-# Install pip requirements
-pip3 install pytest pytest-cov
 
 cd ../app_core
 python3 -m venv venv 
