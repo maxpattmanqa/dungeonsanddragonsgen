@@ -14,9 +14,7 @@ pipeline{
     stages{
         stage("Test Stage"){
             steps{
-                
                 sh " cd testing && bash run_pytest.sh"
-                
             }
         } 
             
@@ -30,46 +28,7 @@ pipeline{
                 sh "docker login -u ${dockerhubcredentials_USR} -p ${dockerhubcredentials_PSW}"
                 sh "docker-compose push"
             }
-        }
-        // }
-        // stage("Build Images Stage"){
-        //     steps{
-        //         //sh "bash jenkins/shell-script/build_artifact.sh"
-        //         // script{
-        //         //  //   if(env.rollback == 'false'){
-        //         //    //     nginx_image = docker.build(nginx:latest)
-        //         //         dnd_app_core_img = docker.build("maxpaqzrio/app_core","app_core")
-        //         //        // sh "echo "APP CORE BUILT SUCCESS"" 
-        //         //         dnd_role_gen_img = docker.build("maxpaqzrio/role_generator","role_generator")
-        //         //        // sh "echo "$(tput setaf 2)ROLE_GEN BUILT SUCCESS"" 
-        //         //         dnd_weapon_gen_img = docker.build("maxpaqzrio/weapon_generator","weapon_generator")
-        //         //        // sh "echo "WEAPON GEN BUILT SUCCESS"" 
-        //         //         dnd_race_gen_img = docker.build("maxpaqzrio/race_generator","race_generator")
-        //         //        // sh "echo "RACE_GEN BUILT SUCCESS"" 
-        //         //         dnd_rating_gen_img = docker.build("maxpaqzrio/rating_generator","rating_generator")
-        //         //  //   }
-
-        //         // }
-        //             sh ""
-        //     }
-        // }
-        // stage("Deposit Images Stage"){
-        //     steps{
-        //         // sh "bash jenkins/shell-script/deposit_artifact.sh"
-        //         // script{
-        //         //     if(env.rollback == 'false'){
-        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_app_core_img.push("${env.VERSION}")}
-        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_role_gen_img.push("${env.VERSION}")}
-        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_weapon_gen_img.push("${env.VERSION}")}
-        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_race_gen_img.push("${env.VERSION}")}
-        //         //         docker.withRegistry('https://registry.hub.docker.com','docker-hub-credentials'){dnd_rating_gen_img.push("${env.VERSION}")}  
-                        
-        //         //         }
-        //         //     }
-
-        //         }
-        //     }
-         
+        }      
           stage("Configure Docker Swarm"){
             steps{
             //////    sh "bash jenkins/ansible-script/install-ansible.sh "
