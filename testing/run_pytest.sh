@@ -13,17 +13,39 @@ pip3 install pytest pytest-cov
 
 
 cd ../app_core
-pytest --cov application
+python3 -m venv venv 
+source venv/bin/activate
+pip3 install -r requirements.txt
+python3 -m pytest --cov=application --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
 
 cd ../weapon_generator
-pytest --cov api
+python3 -m venv venv 
+source venv/bin/activate
+pip3 install -r requirements.txt
+python3 -m pytest --cov=api --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
 
 cd ../race_generator
-pytest --cov api
+python3 -m venv venv 
+source venv/bin/activate
+pip3 install -r requirements.txt
+python3 -m pytest --cov=api --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+
 cd ../role_generator
-pytest --cov api
+python3 -m venv venv 
+source venv/bin/activate
+pip3 install -r requirements.txt
+python3 -m pytest --cov=api --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
+
 cd ../rating_generator
-pytest --cov api
+python3 -m venv venv 
+source venv/bin/activate
+pip3 install -r requirements.txt
+python3 -m pytest --cov=api --cov-report xml --cov-report term-missing --junitxml junit.xml
+deactivate
 
 cd ../testing
 
