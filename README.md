@@ -172,11 +172,11 @@ My useage of trello was appropriate for the project it helped me keep track of t
 Max Pattman
 
 ## Acknowledgements
-Harry-Volker 
-Naail Chodhury
-Mustapha Abari-Jimoh
-Yusuf Yasin
-Oliver Nichols
+* Harry-Volker 
+* Naail Chodhury 
+* Mustapha Abari-Jimoh
+* Yusuf Yasin
+* Oliver Nichols
 
 
 
