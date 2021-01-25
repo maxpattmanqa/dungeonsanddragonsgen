@@ -20,6 +20,7 @@ pipeline{
             
         stage('Build App'){
             steps{
+                sh "docker system prune"
                 sh "docker-compose build"
             }
         }
