@@ -44,7 +44,7 @@ For services #2, #3 and #4 you need to create 2 different implementations, must 
 * The project must be deployed using containerisation and an orchestration tool.
     * **Container tool used: Docker**
 
-    * **Container - orchestration tools used: **
+    * **Container - orchestration tools used:**
         * **Docker-Compose**  
         * **Docker-Swarm** 
         * **Docker-Stack**
