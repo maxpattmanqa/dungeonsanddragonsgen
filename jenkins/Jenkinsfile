@@ -20,7 +20,7 @@ pipeline{
             
         stage('Build App'){
             steps{
-                sh "docker-compose build --parallel"
+                sh "docker-compose build"
             }
         }
         stage('Push App to Docker-Hub'){
