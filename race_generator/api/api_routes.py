@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, Response
 from api import app
-import random
+#import random
 
 @app.route('/get/race_id', methods=['GET'])
 def get_race_id():
