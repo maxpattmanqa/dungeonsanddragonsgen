@@ -130,12 +130,14 @@ My useage of trello was appropriate for the project it helped me keep track of t
 
 ## Risk Assessment
 
-* Find below my risk assessment. If the application involved sensitive information this risk assessment would reflect that. However, the majority of risk for this project is to do with infrastructure out
- of my control failing and standard threats to information being breached in the database
+* Find below my risk assessment. If the application involved sensitive information this risk assessment would reflect that. However, the majority of risk for this project is to do with infrastructure out of my control failing and standard threats to information being breached in the database
 
 ![](images/riskassessment.PNG)
 
 ## Testing
+
+* Tesing coverage across the majority of the application 
+* The image below is a snapshot of the testing coverage taken from the jenkins pipeline
 
 ![](images/testing.PNG)
 
