@@ -1,5 +1,7 @@
 # dungeonsanddragonsgen
 
+A simple application , built using a service style architecture , utiilising CI/CD technologies such as Jenkins, Ansible and Docker 
+
 
 ## Contents
 * [Brief](#brief)
@@ -140,7 +142,6 @@ My useage of trello was appropriate for the project it helped me keep track of t
 * The image below is a snapshot of the testing coverage taken from the jenkins pipeline
 
 ![](images/testing.PNG)
-
 
 
 
