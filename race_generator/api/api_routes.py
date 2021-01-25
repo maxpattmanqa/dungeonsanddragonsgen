@@ -4,5 +4,5 @@ import random
 
 @app.route('/get/race_id', methods=['GET'])
 def get_race_id():
-    rand_value = random.randint(0,5)
+    rand_value = random.randint(1,6)
     return Response(str(rand_value), mimetype='text/plain')
